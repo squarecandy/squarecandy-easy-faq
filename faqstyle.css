@@ -1,4 +1,33 @@
-.bg_faq_closed, .bg_faq_opened {
-cursor:pointer!important;
-background-repeat: no-repeat;
+.squarecandy_accordion_content_section {
+	padding-left: 50px;
+	margin: 40px 0;
+}
+.squarecandy_accordion_content_section h2,
+.squarecandy_accordion_content_section h3,
+.squarecandy_accordion_content_section h4 {
+	cursor:pointer!important;
+	position: relative;
+}
+.squarecandy_accordion_opened::before,
+.squarecandy_accordion_closed::before {
+	content: url('expand-close-icon.svg');
+	position: absolute;
+	left: -45px;
+	top: 0;
+	height: 30px;
+	width: 30px;
+	padding: 0px 10px 18px 0px;
+	vertical-align: top;
+	-webkit-transition: -moz-transform .3s ease-out;
+	-moz-transition: -webkit-transform .3s ease-out;
+	-o-transition: -o-transform .3s ease-out;
+	transition: transform .3s ease-out;
+}
+.squarecandy_accordion_closed::before {
+	-moz-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
+	filter: FlipV;
+	-ms-filter: "FlipV";
 }

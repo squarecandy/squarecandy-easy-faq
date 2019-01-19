@@ -1,14 +1,9 @@
 jQuery(document).ready(function($) {
-	$('.bg_faq_content_section').each(function() {
+	$('.squarecandy_accordion_content_section').each(function() {
 
-		foldup = $(this).data('foldup');
-
-
-
-		$(this).find(' :header:not(h6)').each(function() { // select all the heading in .bg_faq_content_section other than h6
-			if (!$(this).hasClass('bg_faq_closed')) {
-				$(this).addClass('bg_faq_closed'); //make these heading "closed"
-				$(this).attr('data-foldupq', foldup);
+		$(this).find(' :header:not(h6)').each(function() { // select all the heading in .squarecandy_accordion_content_section other than h6
+			if (!$(this).hasClass('squarecandy_accordion_closed')) {
+				$(this).addClass('squarecandy_accordion_closed'); //make these heading "closed"
 				$(this).nextUntil(':header').css({
 					'display': 'none'
 				}); //hide everything up until the next heading
@@ -23,31 +18,24 @@ jQuery(document).ready(function($) {
 				}); //position the visual cue
 
 				$(this).click(function() {
-					foldup = $(this).attr('data-foldupq');
 					//whenever one of these headings is clicked,
-					if ($(this).hasClass('bg_faq_opened')) {
+					if ($(this).hasClass('squarecandy_accordion_opened')) {
 
 						//check to see if it's opened. If so,...
-						$(this).nextUntil(':header').slideUp(); //slide up the content beneath it and mark this heading "closed"
-						$(this).removeClass('bg_faq_opened').addClass('bg_faq_closed');
+						$(this).nextUntil(':header').slideUp(300); //slide up the content beneath it and mark this heading "closed"
+						$(this).removeClass('squarecandy_accordion_opened').addClass('squarecandy_accordion_closed');
 					} else { //if it isn't opened,
-						if (foldup == 'yes') { //check to see we are supposed to fold up other content so only one answer shows at a time.
-							//		console.log('foldup = yes');
-
-							$(this).parents('.bg_faq_content_section').eq(0).find('.bg_faq_opened').not(this).each(function() { //if so...
-								$(this).nextUntil(':header').slideUp(); //foldup other content and mark the headings as closed
-								$(this).removeClass('bg_faq_opened').addClass('bg_faq_closed');
-							})
-						}
-						$(this).nextUntil(':header').slideDown(); //then roll out the content and mark the heading as opened
-						$(this).removeClass('bg_faq_closed').addClass('bg_faq_opened');
+						$(this).parents('.squarecandy_accordion_content_section').eq(0).find('.squarecandy_accordion_opened').not(this).each(function() { //if so...
+							$(this).nextUntil(':header').slideUp(300); //foldup other content and mark the headings as closed
+							$(this).removeClass('squarecandy_accordion_opened').addClass('squarecandy_accordion_closed');
+						})
+						$(this).nextUntil(':header').slideDown(300); //then roll out the content and mark the heading as opened
+						$(this).removeClass('squarecandy_accordion_closed').addClass('squarecandy_accordion_opened');
 					}
-
 
 				})
 			}
 		});
-
 
 	});
 });
