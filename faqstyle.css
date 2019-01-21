@@ -1,6 +1,6 @@
 .squarecandy_accordion_content_section {
-	padding-left: 50px;
-	margin: 40px 0;
+	padding-left: 3.125rem;
+	margin: 2.5rem 0;
 }
 .squarecandy_accordion_content_section h2,
 .squarecandy_accordion_content_section h3,
@@ -12,11 +12,11 @@
 .squarecandy_accordion_closed::before {
 	content: url('expand-close-icon.svg');
 	position: absolute;
-	left: -45px;
+	left: -2.813rem;
 	top: 0;
-	height: 30px;
-	width: 30px;
-	padding: 0px 10px 18px 0px;
+	height: 1.875rem;
+	width: 1.875rem;
+	padding: 0 0.625rem 1.125rem 0;
 	vertical-align: top;
 	-webkit-transition: -moz-transform .3s ease-out;
 	-moz-transition: -webkit-transform .3s ease-out;
