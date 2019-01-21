@@ -83,19 +83,22 @@ function make_faq_check_box($post)
 	</p>
 	<?php  // @TODO - add click to copy for the shortcodes, or click to insert into body
 }
+
+// Save the Checkbox Options
+
 add_action('save_post', 'save_faq_check_box');
 
 function save_faq_check_box($post_id)
 {
-	// verify if this is an auto save routine.
-	// If it is our form has not been submitted, so we dont want to do anything
-	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-		return;
-	}
+	// lots of various situations to bail out early:
 
-	// check if this is the "add new" screen. Don't process anything here either
 	$screen = get_current_screen();
-	if ( $screen->action === 'add' ) {
+	if (
+		defined('DOING_AUTOSAVE') && DOING_AUTOSAVE || // this is an autosave and not a regular save button press
+		$screen->action != '' || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
+		$screen->base != 'post' || // check that we are in the basic post edit screen
+		$screen->post_type != 'page'  // check that the type of post we are editing is PAGE
+	) {
 		return;
 	}
 
