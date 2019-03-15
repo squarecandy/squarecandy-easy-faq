@@ -77,7 +77,7 @@ function make_faq_check_box($post)
 	</p>
 	<p>
 		<input id="make_faq_shortcode" name="make_faq_shortcode" type="checkbox" value="yes" <?php echo $checked_shortcode; ?>>
-		<label form="make_faq_shortcode"><strong>Shortcode Accordions</strong></label><br>
+		<label for="make_faq_shortcode"><strong>Shortcode Accordions</strong></label><br>
 		Check this box to apply the drop-down effect only to sections on the page wrapped in the shortcodes
 			<code>[accordion_start]</code> and <code>[accordion_end]</code>.
 	</p>
