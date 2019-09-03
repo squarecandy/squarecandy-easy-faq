@@ -22,14 +22,14 @@ function determine_is_faq() {
 		$id                     = $eachpost->ID;
 		$faq_checkbox           = get_post_meta( $id, 'make_faq_page', true ); //see whether the "make faq" check box was checked on this post
 		$faq_shortcode_checkbox = get_post_meta( $id, 'make_faq_shortcode', true );
-		if ( $faq_shortcode_checkbox == 'yes' ) { // if this post needs the faq animations,
+		if ( 'yes' === $faq_shortcode_checkbox ) { // if this post needs the faq animations,
 			$loadfaq = 1;
 		}
 	}
-	if ( $loadfaq == 1 ) {
+	if ( $loadfaq ) {
 		//if the current post, page, or one of the posts returned by the current query needs the animations....
-		wp_enqueue_script( 'faqmaker', plugins_url( 'faqmaker.js', __FILE__ ), array( 'jquery' ) );
-		wp_enqueue_style( 'faqstyle', plugins_url( 'faqstyle.css', __FILE__ ) );
+		wp_enqueue_script( 'faqmaker', plugins_url( 'faqmaker.js', __FILE__ ), array( 'jquery' ), '4.1.0', true );
+		wp_enqueue_style( 'faqstyle', plugins_url( 'faqstyle.css', __FILE__ ), array(), '4.1.0' );
 		add_filter( 'the_content', 'faq_filter', 1 );
 	}
 }
@@ -43,7 +43,7 @@ function faq_filter( $content ) {
 	$faq_checkbox           = get_post_meta( $post->ID, 'make_faq_page', true );
 	$faq_shortcode_checkbox = get_post_meta( $post->ID, 'make_faq_shortcode', true );
 
-	if ( $faq_checkbox == 'yes' && $faq_shortcode_checkbox !== 'yes' ) {
+	if ( 'yes' === $faq_checkbox && 'yes' !== $faq_shortcode_checkbox ) {
 		//this code adds a script to call our javascript function with arguments set on the admin page
 		$content  = '<div class="squarecandy_accordion_content_section">' . $content;
 		$content .= '</div>';
@@ -67,9 +67,9 @@ function add_faq_check_boxes() {
 function make_faq_check_box( $post ) {
 	wp_nonce_field( 'faq_nonce_action', 'faq_nonce_name' );
 	$faq_checked           = get_post_meta( $post->ID, 'make_faq_page', true );
-	$checked               = ( $faq_checked == 'yes' ) ? 'checked="checked"' : '';
+	$checked               = ( 'yes' === $faq_checked ) ? 'checked="checked"' : '';
 	$faq_shortcode_checked = get_post_meta( $post->ID, 'make_faq_shortcode', true );
-	$checked_shortcode     = ( $faq_shortcode_checked == 'yes' ) ? 'checked="checked"' : '';
+	$checked_shortcode     = ( 'yes' === $faq_shortcode_checked ) ? 'checked="checked"' : '';
 	?>
 	<p>
 		<input id="make_faq_page" name="make_faq_page" type="checkbox" value="yes" <?php echo $checked; ?>>
@@ -83,7 +83,7 @@ function make_faq_check_box( $post ) {
 			<code>[accordion_start]</code> and <code>[accordion_end]</code>.
 	</p>
 	<?php
-	 // @TODO - add click to copy for the shortcodes, or click to insert into body
+	// @TODO - add click to copy for the shortcodes, or click to insert into body
 }
 
 // Save the Checkbox Options
@@ -103,7 +103,7 @@ function save_faq_check_box( $post_id ) {
 		defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE || // this is an autosave and not a regular save button press
 		'' !== $screen->action || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
 		'post' !== $screen->base || // check that we are in the basic post edit screen
-		! in_array( $screen->post_type, $faq_post_types ) // check that the type of post we are editing is one of the allowed types
+		! in_array( $screen->post_type, $faq_post_types, true ) // check that the type of post we are editing is one of the allowed types
 	) {
 		return;
 	}
@@ -115,7 +115,7 @@ function save_faq_check_box( $post_id ) {
 	}
 
 	// Check permissions
-	if ( 'page' == $_POST['post_type'] ) {
+	if ( 'page' === $_POST['post_type'] ) {
 		if ( ! current_user_can( 'edit_page', $post_id ) ) {
 			return;
 		}
