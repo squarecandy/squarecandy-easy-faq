@@ -2,7 +2,7 @@
 Contributors: bgentry, squarecandy
 Tags: faq pages
 Tested up to: 5.0.3
-Stable tag: 4.1.0
+Stable tag: 4.1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
