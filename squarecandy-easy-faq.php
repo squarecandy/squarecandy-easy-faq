@@ -126,10 +126,10 @@ function save_faq_check_box( $post_id ) {
 	}
 
 	// OK, we're authenticated: we need to find and save the data
-	$faq = ( isset( $_POST['make_faq_page'] ) ) ? $_POST['make_faq_page'] : '';
+	$faq = ( ! empty( $_POST['make_faq_page'] ) ) ? $_POST['make_faq_page'] : '';
 	update_post_meta( $post_id, 'make_faq_page', $faq );
 
-	$faq_shortcode = ( isset( $_POST['make_faq_shortcode'] ) ) ? $_POST['make_faq_shortcode'] : '';
+	$faq_shortcode = ( ! empty( $_POST['make_faq_shortcode'] ) ) ? $_POST['make_faq_shortcode'] : '';
 	update_post_meta( $post_id, 'make_faq_shortcode', $faq_shortcode );
 }
 
@@ -137,9 +137,13 @@ add_shortcode( 'accordion_start', 'squarecandy_accordion_shortcode_start' );
 add_shortcode( 'accordion_end', 'squarecandy_accordion_shortcode_end' );
 
 function squarecandy_accordion_shortcode_start() {
-	return '<div class="squarecandy_accordion_content_section">';
+	if ( 'yes' === get_post_meta( get_the_ID(), 'make_faq_shortcode', true ) ) {
+		return '<div class="squarecandy_accordion_content_section">';
+	}
 }
 
 function squarecandy_accordion_shortcode_end() {
-	return '</div>';
+	if ( 'yes' === get_post_meta( get_the_ID(), 'make_faq_shortcode', true ) ) {
+		return '</div>';
+	}
 }
