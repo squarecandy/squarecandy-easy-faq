@@ -17,17 +17,17 @@ add_action( 'wp', 'determine_is_faq' );
 function determine_is_faq() {
 	global $wp_query;
 	$loadfaq = false; // set initial value
-	//now let's go through each post in the query and see whether it needs the animations
+	// now let's go through each post in the query and see whether it needs the animations
 	foreach ( $wp_query->posts as $eachpost ) {
 		$id                     = $eachpost->ID;
-		$faq_checkbox           = get_post_meta( $id, 'make_faq_page', true ); //see whether the "make faq" check box was checked on this post
+		$faq_checkbox           = get_post_meta( $id, 'make_faq_page', true ); // see whether the "make faq" check box was checked on this post
 		$faq_shortcode_checkbox = get_post_meta( $id, 'make_faq_shortcode', true );
 		if ( 'yes' === $faq_shortcode_checkbox || 'yes' === $faq_checkbox ) { // if this post needs the faq animations,
 			$loadfaq = true;
 		}
 	}
 	if ( $loadfaq ) {
-		//if the current post, page, or one of the posts returned by the current query needs the animations....
+		// if the current post, page, or one of the posts returned by the current query needs the animations....
 		wp_enqueue_script( 'faqmaker', plugins_url( 'faqmaker.js', __FILE__ ), array( 'jquery' ), '4.1.0', true );
 		wp_enqueue_style( 'faqstyle', plugins_url( 'faqstyle.css', __FILE__ ), array(), '4.1.0' );
 		add_filter( 'the_content', 'faq_filter', 1 );
