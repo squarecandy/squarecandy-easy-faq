@@ -22,7 +22,7 @@ function determine_is_faq() {
 		$id                     = $eachpost->ID;
 		$faq_checkbox           = get_post_meta( $id, 'make_faq_page', true ); //see whether the "make faq" check box was checked on this post
 		$faq_shortcode_checkbox = get_post_meta( $id, 'make_faq_shortcode', true );
-		if ( 'yes' === $faq_shortcode_checkbox ) { // if this post needs the faq animations,
+		if ( 'yes' === $faq_shortcode_checkbox || 'yes' === $faq_checkbox ) { // if this post needs the faq animations,
 			$loadfaq = 1;
 		}
 	}
