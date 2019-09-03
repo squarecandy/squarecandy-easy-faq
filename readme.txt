@@ -2,7 +2,7 @@
 Contributors: bgentry, squarecandy
 Tags: faq pages
 Tested up to: 5.0.3
-Stable tag: 4.0.1
+Stable tag: 4.1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,17 @@ Use the shortcodes [accordion_start] and [accordion_end] to wrap the section of 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions and settings
 
+== Filters ==
+
+* Use the filter `squarecandy_filter_accordion_post_types` to open the accordion functions up to other post types.
+
 == Changelog ==
+
+=4.1.0=
+* Add filter to open up more content types
+* typo fixes
+* phpcs code cleanup
+* bugfix - fullpage accordion option
 
 =4.0.0=
 * Square Candy Fork
