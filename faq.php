@@ -58,8 +58,12 @@ add_action('do_meta_boxes', 'add_faq_check_boxes');
 
 function add_faq_check_boxes()
 {
+	// by default this options box only shows on the Page post type.
+	$faq_post_types = array('page');
+	// add filter to allow opening up more post types on a case-by-case basis
+	$faq_post_types = apply_filters( 'squarecandy_filter_accordion_post_types', $faq_post_types );
 	// this is set to only load on Pages - @TODO make an options screen to allow enabling on different types of posts.
-	add_meta_box('faqcheck', 'Use Accordions on this Page', 'make_faq_check_box', 'page', 'side', 'low', 1);
+	add_meta_box('faqcheck', 'Use Accordions on this Page', 'make_faq_check_box', $faq_post_types, 'side', 'low', 1);
 }
 
 function make_faq_check_box($post)
@@ -90,14 +94,19 @@ add_action('save_post', 'save_faq_check_box');
 
 function save_faq_check_box($post_id)
 {
-	// lots of various situations to bail out early:
+	// by default this options box only shows on the Page post type.
+	$faq_post_types = array('page');
+	// add filter to allow opening up more post types on a case-by-case basis
+	$faq_post_types = apply_filters( 'squarecandy_filter_accordion_post_types', $faq_post_types );
 
+	// lots of various situations to bail out early:
 	$screen = get_current_screen();
+
 	if (
 		defined('DOING_AUTOSAVE') && DOING_AUTOSAVE || // this is an autosave and not a regular save button press
-		$screen->action != '' || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
-		$screen->base != 'post' || // check that we are in the basic post edit screen
-		$screen->post_type != 'page'  // check that the type of post we are editing is PAGE
+		'' !== $screen->action || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
+		'post' !== $screen->base || // check that we are in the basic post edit screen
+		! in_array( $screen->post_type, $faq_post_types) // check that the type of post we are editing is one of the allowed types
 	) {
 		return;
 	}
