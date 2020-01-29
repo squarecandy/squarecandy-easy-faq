@@ -1,8 +1,8 @@
 === Easy FAQ with Expanding Text ===
 Contributors: bgentry, squarecandy
 Tags: faq pages
-Tested up to: 5.0.3
-Stable tag: 4.1.2
+Tested up to: 5.3.2
+Stable tag: 4.1.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,9 @@ Use the shortcodes [accordion_start] and [accordion_end] to wrap the section of 
 * Use the filter `squarecandy_filter_accordion_post_types` to open the accordion functions up to other post types.
 
 == Changelog ==
+
+=4.1.3=
+* Move repo to GitHub
 
 =4.1.0=
 * Add filter to open up more content types

@@ -2,13 +2,14 @@
 /*
 Plugin Name: Square Candy Easy FAQ Accordions
 Description: Fork of the Easy FAQ with Expanding Text plugin for use with Theory One Design and Square Candy themes.
-Version: 4.1.2
+Version: 4.1.3
 Author: bgentry, squarecandy
 Author URI: http://bryangentry.us
-Plugin URI: https://bitbucket.org/squarecandy/squarecandy-easy-faq
-Bitbucket Plugin URI: https://bitbucket.org/squarecandy/squarecandy-easy-faq
+Plugin URI: https://github.com/squarecandy/squarecandy-easy-faq
+GitHub Plugin URI: https://github.com/squarecandy/squarecandy-easy-faq
 
 Thanks to the original plugin author http://bryangentry.us
+Thanks to Theory One Design for sponsoring and inspiring this fork's development
 */
 
 
@@ -72,12 +73,12 @@ function make_faq_check_box( $post ) {
 	$checked_shortcode     = ( 'yes' === $faq_shortcode_checked ) ? 'checked="checked"' : '';
 	?>
 	<p>
-		<input id="make_faq_page" name="make_faq_page" type="checkbox" value="yes" <?php echo $checked; ?>>
+		<input id="make_faq_page" name="make_faq_page" type="checkbox" value="yes" <?php echo $checked; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 		<label for="make_faq_page"><strong>Full Page Accordion</strong></label><br>
 		Check this box if you want to apply the accordion drop-down effect to the entire page.
 	</p>
 	<p>
-		<input id="make_faq_shortcode" name="make_faq_shortcode" type="checkbox" value="yes" <?php echo $checked_shortcode; ?>>
+		<input id="make_faq_shortcode" name="make_faq_shortcode" type="checkbox" value="yes" <?php echo $checked_shortcode; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 		<label for="make_faq_shortcode"><strong>Shortcode Accordions</strong></label><br>
 		Check this box to apply the drop-down effect only to sections on the page wrapped in the shortcodes
 			<code>[accordion_start]</code> and <code>[accordion_end]</code>.
