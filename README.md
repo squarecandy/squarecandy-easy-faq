@@ -18,10 +18,10 @@ Thanks to [Theory One Design](https://www.theoryonedesign.com/) for sponsoring a
 ### Status
 
 #### develop
-![](https://github.com/squarecandy/squarecandy-plugin-starter/workflows/WordPress%20Standards/badge.svg?branch=develop&event=push)
+![](https://github.com/squarecandy/squarecandy-easy-faq/workflows/WordPress%20Standards/badge.svg?branch=develop&event=push)
 
 #### master
-![](https://github.com/squarecandy/squarecandy-plugin-starter/workflows/WordPress%20Standards/badge.svg)
+![](https://github.com/squarecandy/squarecandy-easy-faq/workflows/WordPress%20Standards/badge.svg)
 
 ### Filters
 
