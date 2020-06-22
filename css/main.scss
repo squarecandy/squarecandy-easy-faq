@@ -1,33 +1,30 @@
 .squarecandy_accordion_content_section {
-	padding-left: 3.125rem;
 	margin: 2.5rem 0;
+	padding-left: 3.125rem;
+
+	h2,
+	h3,
+	h4 {
+		position: relative;
+		cursor: pointer !important;
+	}
 }
-.squarecandy_accordion_content_section h2,
-.squarecandy_accordion_content_section h3,
-.squarecandy_accordion_content_section h4 {
-	cursor:pointer!important;
-	position: relative;
-}
+
 .squarecandy_accordion_opened::before,
 .squarecandy_accordion_closed::before {
-	content: url('expand-close-icon.svg');
 	position: absolute;
-	left: -2.813rem;
 	top: 0;
-	height: 1.4rem;
+	left: -2.813rem;
 	width: 1.875rem;
+	height: 1.4rem;
 	padding: 0 0.625rem 1.125rem 0;
 	vertical-align: top;
-	-webkit-transition: -moz-transform .3s ease-out;
-	-moz-transition: -webkit-transform .3s ease-out;
-	-o-transition: -o-transform .3s ease-out;
-	transition: transform .3s ease-out;
+	transition: transform 0.3s ease-out;
+	content: url(../../images/expand-close-icon.svg);
 }
+
 .squarecandy_accordion_closed::before {
-	-moz-transform: scaleY(-1);
-	-o-transform: scaleY(-1);
-	-webkit-transform: scaleY(-1);
 	transform: scaleY(-1);
-	filter: FlipV;
 	-ms-filter: "FlipV";
+	filter: flipv;
 }

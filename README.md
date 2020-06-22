@@ -1,6 +1,12 @@
 # Square Candy Plugin Starter
 
-A WordPress plugin template to get you started with common features and file structure.
+Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. Shortcode is available, not required.
+
+Fork of the Easy FAQ with Expanding Text plugin for use with Theory One Design and Square Candy themes.
+
+Thanks to the original plugin author [Bryan Gentry](http://bryangentry.us).
+
+Thanks to [Theory One Design](https://www.theoryonedesign.com/) for sponsoring and inspiring this fork's development
 
 ## Status
 

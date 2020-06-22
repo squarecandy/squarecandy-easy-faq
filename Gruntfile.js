@@ -52,7 +52,7 @@ module.exports = function( grunt ) {
 		},
 		phpcs: {
 			application: {
-				src: [ '*.php', 'inc/*.php', 'template-parts/*.php' ],
+				src: [ '*.php' ],
 			},
 			options: {
 				bin: './vendor/squizlabs/php_codesniffer/bin/phpcs',
@@ -83,11 +83,11 @@ module.exports = function( grunt ) {
 		watch: {
 			css: {
 				files: [ 'css/*.scss' ],
-				tasks: [ 'sass', 'postcss', 'run:stylelintfix' ],
+				tasks: [ 'run:stylelintfix', 'sass', 'postcss' ],
 			},
 			js: {
 				files: [ 'js/*.js' ],
-				tasks: [ 'terser', 'run:eslintfix' ],
+				tasks: [ 'run:eslintfix', 'terser' ],
 			},
 		},
 	} );
