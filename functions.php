@@ -88,16 +88,21 @@ function save_faq_check_box( $post_id ) {
 	$faq_post_types = apply_filters( 'squarecandy_filter_accordion_post_types', $faq_post_types );
 
 	// lots of various situations to bail out early:
-	$screen = get_current_screen();
-
-	if (
-		defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE || // this is an autosave and not a regular save button press
-		'' !== $screen->action || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
-		'post' !== $screen->base || // check that we are in the basic post edit screen
-		! in_array( $screen->post_type, $faq_post_types, true ) // check that the type of post we are editing is one of the allowed types
-	) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		// this is an autosave and not a regular save button press
 		return;
 	}
+
+	if ( function_exists( 'get_current_screen' ) ) :
+		$screen = get_current_screen();
+		if (
+			'' !== $screen->action || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
+			'post' !== $screen->base || // check that we are in the basic post edit screen
+			! in_array( $screen->post_type, $faq_post_types, true ) // check that the type of post we are editing is one of the allowed types
+		) {
+			return;
+		}
+	endif;
 
 	// verify this came from the our screen and with proper authorization,
 	// because save_post can be triggered at other times
