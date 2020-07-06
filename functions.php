@@ -96,9 +96,11 @@ function save_faq_check_box( $post_id ) {
 	if ( function_exists( 'get_current_screen' ) ) :
 		$screen = get_current_screen();
 		if (
-			'' !== $screen->action || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
-			'post' !== $screen->base || // check that we are in the basic post edit screen
-			! in_array( $screen->post_type, $faq_post_types, true ) // check that the type of post we are editing is one of the allowed types
+			is_object( $screen ) && (
+				'' !== $screen->action || // check if this is the "add new" screen, or other actions which you don't want to process as a submission
+				'post' !== $screen->base || // check that we are in the basic post edit screen
+				! in_array( $screen->post_type, $faq_post_types, true ) // check that the type of post we are editing is one of the allowed types
+			)
 		) {
 			return;
 		}
