@@ -1,0 +1,30 @@
+.squarecandy_accordion_content_section {
+	margin: 2.5rem 0;
+	padding-left: 3.125rem;
+
+	h2,
+	h3,
+	h4 {
+		position: relative;
+		cursor: pointer !important;
+	}
+}
+
+.squarecandy_accordion_opened::before,
+.squarecandy_accordion_closed::before {
+	position: absolute;
+	top: 0;
+	left: -2.813rem;
+	width: 1.875rem;
+	height: 1.4rem;
+	padding: 0 0.625rem 1.125rem 0;
+	vertical-align: top;
+	transition: transform 0.3s ease-out;
+	content: url(../../images/expand-close-icon.svg);
+}
+
+.squarecandy_accordion_closed::before {
+	transform: scaleY(-1);
+	-ms-filter: "FlipV";
+	filter: flipv;
+}
