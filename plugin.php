@@ -2,7 +2,7 @@
 /*
 Plugin Name: Square Candy Easy FAQ Accordions
 Description: Fork of the Easy FAQ with Expanding Text plugin for use with Theory One Design and Square Candy themes.
-Version: 4.1.3
+Version: 4.1.4
 Author: bgentry, squarecandy
 Author URI: http://squarecandy.net
 Plugin URI: https://github.com/squarecandy/squarecandy-easy-faq
