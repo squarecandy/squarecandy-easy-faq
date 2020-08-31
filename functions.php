@@ -19,8 +19,8 @@ function determine_is_faq() {
 	}
 	if ( $loadfaq ) {
 		// if the current post, page, or one of the posts returned by the current query needs the animations....
-		wp_enqueue_script( 'faqmaker', SQUARECANDY_FAQ_URL . 'dist/js/main.min.js', array( 'jquery' ), 'version-4.1.4', true );
-		wp_enqueue_style( 'faqstyle', SQUARECANDY_FAQ_URL . 'dist/css/main.min.css', array(), 'version-4.1.4' );
+		wp_enqueue_script( 'faqmaker', SQUARECANDY_FAQ_URL . 'dist/js/main.min.js', array( 'jquery' ), 'version-4.1.5', true );
+		wp_enqueue_style( 'faqstyle', SQUARECANDY_FAQ_URL . 'dist/css/main.min.css', array(), 'version-4.1.5' );
 		add_filter( 'the_content', 'faq_filter', 1 );
 	}
 }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 4.1.5 (2020-08-31)
+
+
+### Bug Fixes
+
+* check for get_current_screen function avail ([181f339](https://github.com/squarecandy/squarecandy-plugin-starter/commit/181f339fe11ceb1db7d5e6586e3980f6d791e73c))
+* check that nonce post var is defined ([77129f7](https://github.com/squarecandy/squarecandy-plugin-starter/commit/77129f7a2b08cb960ba2fe08df21da5c3ea41079))
+* object check to avoid errors ([c193ae7](https://github.com/squarecandy/squarecandy-plugin-starter/commit/c193ae7060249804915cd93bcb732e90fb0774d7))
+* two main plugin files! ([80a8754](https://github.com/squarecandy/squarecandy-plugin-starter/commit/80a87549744ae8c8e5d76bf001769ce59815d2e1))
+
 ### 4.1.4 (2020-08-17)
 
 
