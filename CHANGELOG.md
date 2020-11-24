@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.6](https://github.com/squarecandy/squarecandy-plugin-starter/compare/v4.1.5...v4.1.6) (2020-11-24)
+
+
+### Bug Fixes
+
+* composer 1/2 issue in github actions ([01c9a57](https://github.com/squarecandy/squarecandy-plugin-starter/commit/01c9a5712c610d9daebf9263b64f6b533e85bca2))
+
 ### 4.1.5 (2020-08-31)
 
 
