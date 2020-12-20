@@ -14,7 +14,7 @@
 	"homepage": "https://github.com/squarecandy/squarecandy-plugin-starter",
 	"scripts": {
 		"release": "standard-version",
-		"preinstall": "composer install"
+		"preinstall": "composer install --ignore-platform-reqs"
 	},
 	"standard-version": {
 		"skip": {
