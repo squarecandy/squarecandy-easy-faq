@@ -24,7 +24,7 @@
 	"devDependencies": {
 		"@types/eslint": "6.8.0",
 		"@wordpress/eslint-plugin": "^5.1.0",
-		"@wordpress/scripts": "^9.1.0",
+		"@wordpress/scripts": "^26.3.0",
 		"autoprefixer": "^9.7.4",
 		"cssnano": "^4.1.10",
 		"grunt": "^1.0.4",
