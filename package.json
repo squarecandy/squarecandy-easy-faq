@@ -43,7 +43,7 @@
 		"prettier": "npm:wp-prettier@1.19.1",
 		"standard-version": "^8.0.0",
 		"string-replace": "^0.2.0",
-		"stylelint": "^13.3.3",
+		"stylelint": "^15.10.1",
 		"stylelint-config-rational-order": "^0.1.2",
 		"stylelint-config-recommended-scss": "^4.2.0",
 		"stylelint-config-sass-guidelines": "^7.0.0",
