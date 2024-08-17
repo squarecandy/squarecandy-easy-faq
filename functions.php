@@ -145,3 +145,7 @@ function squarecandy_accordion_shortcode_end() {
 		return '</div>';
 	}
 }
+
+// squarecandy common
+require SQUARECANDY_FAQ_PATH . 'inc/sqcdy-common.php';
+require SQUARECANDY_FAQ_PATH . 'inc/sqcdy-plugin.php';
