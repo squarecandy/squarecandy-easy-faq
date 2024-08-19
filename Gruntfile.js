@@ -3,7 +3,7 @@
 
 // now using grunt-sass to avoid Ruby dependency
 
-module.exports = function( grunt ) {
+module.exports = function ( grunt ) {
 	const sass = require( 'sass' );
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
