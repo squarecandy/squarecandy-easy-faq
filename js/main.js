@@ -11,7 +11,19 @@ jQuery( document ).ready( function ( $ ) {
 		$headers.attr( 'aria-expanded', false );
 
 		// make the headings clickable with the keyboard
-		$headers.on('keydown', function(event) { if (event.which === 13 || event.which === 32) { jQuery(this).click() } });
+		$headers.on( 'keydown', function ( e ) {
+			if (
+				e.key === ' ' ||
+				e.code === 'Space' ||
+				e.keyCode === 32 || // space
+				e.key === 'Enter' ||
+				e.code === 'Enter' ||
+				e.keyCode === 13 // enter
+			) {
+				jQuery( this ).click();
+				e.preventDefault();
+			}
+		} );
 
 		$headers.each( function () {
 			if ( ! $( this ).hasClass( 'squarecandy_accordion_closed' ) ) {
