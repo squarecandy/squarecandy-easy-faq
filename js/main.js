@@ -1,4 +1,5 @@
 jQuery( document ).ready( function ( $ ) {
+	let sectionID = 0;
 	$( '.squarecandy_accordion_content_section' ).each( function () {
 		// select all the heading in .squarecandy_accordion_content_section other than h6
 		const $headers = $( this ).find( ' :header:not(h6)' );
@@ -25,14 +26,24 @@ jQuery( document ).ready( function ( $ ) {
 			}
 		} );
 
+		let i = 0;
 		$headers.each( function () {
 			if ( ! $( this ).hasClass( 'squarecandy_accordion_closed' ) ) {
+				const panelID = 'squarecandy_accordion_content_' + sectionID + '_' + i;
+				const headingID = 'squarecandy_accordion_heading_' + sectionID + '_' + i;
 				// make these heading "closed"
 				$( this ).addClass( 'squarecandy_accordion_closed' );
-				// hide everything up until the next heading
-				$( this ).nextUntil( ':header' ).css( {
-					display: 'none',
-				} );
+				$( this ).attr( 'aria-controls', panelID );
+				// wrap and hide everything up until the next heading
+				$( this )
+					.nextUntil( ':header' )
+					.wrapAll(
+						'<div class="accordion-panel" id="' +
+							panelID +
+							'" style="display:none;" role="region" aria-labelledby="' +
+							headingID +
+							'"></div>'
+					);
 				// get the font size in order to more accurately position the visual cue
 				const textsize = $( this ).css( 'font-size' );
 				const halftextsize = parseInt( textsize ) / 2;
@@ -61,6 +72,8 @@ jQuery( document ).ready( function ( $ ) {
 					}
 				} );
 			}
+			i++;
 		} );
+		sectionID++;
 	} );
 } );
