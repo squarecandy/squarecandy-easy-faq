@@ -1,3 +1,7 @@
+:root {
+	--sqcdy-accordion-highlight: #55f;
+}
+
 .squarecandy_accordion_content_section {
 	margin: 2.5rem 0;
 	padding-left: 3.125rem;
@@ -7,6 +11,12 @@
 	h4 {
 		position: relative;
 		cursor: pointer !important;
+
+		&:focus-visible {
+			outline: 2px solid var(--sqcdy-accordion-highlight);
+			outline-offset: 3px;
+			border-radius: 2px;
+		}
 	}
 }
 
