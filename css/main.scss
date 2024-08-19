@@ -38,3 +38,7 @@
 	-ms-filter: "FlipV";
 	filter: flipv;
 }
+
+.accordion-panel *:last-child {
+	margin-bottom: 0;
+}
