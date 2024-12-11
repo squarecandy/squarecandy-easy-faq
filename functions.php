@@ -2,7 +2,7 @@
 
 define( 'SQUARECANDY_FAQ_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SQUARECANDY_FAQ_URL', plugin_dir_url( __FILE__ ) );
-define( 'SQUARECANDY_FAQ_VERSION', 'version-4.2.0-dev.2' );
+define( 'SQUARECANDY_FAQ_VERSION', 'version-4.2.0-dev.3' );
 
 // Square Candy Common files
 require_once SQUARECANDY_FAQ_PATH . '/inc/sqcdy-common.php';
