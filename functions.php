@@ -2,6 +2,11 @@
 
 define( 'SQUARECANDY_FAQ_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SQUARECANDY_FAQ_URL', plugin_dir_url( __FILE__ ) );
+define( 'SQUARECANDY_FAQ_VERSION', 'version-4.2.0-dev.2' );
+
+// Square Candy Common files
+require_once SQUARECANDY_FAQ_PATH . '/inc/sqcdy-common.php';
+require_once SQUARECANDY_FAQ_PATH . '/inc/sqcdy-plugin.php';
 
 // check if the page has accordions and needs to load the scripts and styles
 add_action( 'wp', 'determine_is_faq' );
@@ -19,8 +24,8 @@ function determine_is_faq() {
 	}
 	if ( $loadfaq ) {
 		// if the current post, page, or one of the posts returned by the current query needs the animations....
-		wp_enqueue_script( 'faqmaker', SQUARECANDY_FAQ_URL . 'dist/js/main.min.js', array( 'jquery' ), 'version-4.2.0-dev.2', true );
-		wp_enqueue_style( 'faqstyle', SQUARECANDY_FAQ_URL . 'dist/css/main.min.css', array(), 'version-4.2.0-dev.2' );
+		wp_enqueue_script( 'faqmaker', SQUARECANDY_FAQ_URL . 'dist/js/main.min.js', array( 'jquery' ), SQUARECANDY_FAQ_VERSION, true );
+		wp_enqueue_style( 'faqstyle', SQUARECANDY_FAQ_URL . 'dist/css/main.min.css', array(), SQUARECANDY_FAQ_VERSION );
 		add_filter( 'the_content', 'faq_filter', 1 );
 	}
 }
