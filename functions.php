@@ -15,6 +15,9 @@ function determine_is_faq() {
 	$loadfaq = false; // set initial value
 	// now let's go through each post in the query and see whether it needs the animations
 	foreach ( $wp_query->posts as $eachpost ) {
+		if ( ! isset( $eachpost->ID ) ) {
+			continue;
+		}
 		$id                     = $eachpost->ID;
 		$faq_checkbox           = get_post_meta( $id, 'make_faq_page', true ); // see whether the "make faq" check box was checked on this post
 		$faq_shortcode_checkbox = get_post_meta( $id, 'make_faq_shortcode', true );
@@ -35,6 +38,10 @@ function determine_is_faq() {
 function faq_filter( $content ) {
 	//first, we need to check again whether the current page needs the animation, so that the animation is not given unnecessarily to posts on an archive / index page
 	global $post;
+
+	if ( ! isset( $post->ID ) ) {
+		return;
+	}
 
 	$faq_checkbox           = get_post_meta( $post->ID, 'make_faq_page', true );
 	$faq_shortcode_checkbox = get_post_meta( $post->ID, 'make_faq_shortcode', true );
@@ -61,6 +68,9 @@ function add_faq_check_boxes() {
 }
 
 function make_faq_check_box( $post ) {
+	if ( ! isset( $post->ID ) ) {
+		return;
+	}
 	wp_nonce_field( 'faq_nonce_action', 'faq_nonce_name' );
 	$faq_checked           = get_post_meta( $post->ID, 'make_faq_page', true );
 	$checked               = ( 'yes' === $faq_checked ) ? 'checked="checked"' : '';
@@ -118,7 +128,7 @@ function save_faq_check_box( $post_id ) {
 	}
 
 	// Check permissions
-	if ( 'page' === $_POST['post_type'] ) {
+	if ( isset( $_POST['post_type'] ) && 'page' === $_POST['post_type'] ) {
 		if ( ! current_user_can( 'edit_page', $post_id ) ) {
 			return;
 		}
