@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/squarecandy/squarecandy-plugin-starter/compare/v4.1.6...v5.0.0) (2025-01-23)
+
+
+### Features
+
+* accessibility: style focused headers ([ac762a2](https://github.com/squarecandy/squarecandy-plugin-starter/commit/ac762a2127369be4c2613491c9d3ad0475dc8eb8))
+* more accessibility features: wrap each panel content, give unique IDs, implement aria-controls, aria-labeledby, etc. ([22822e1](https://github.com/squarecandy/squarecandy-plugin-starter/commit/22822e18fea9075044419d6d4aee493d886be1c5))
+* start accessibility features ([013b0f0](https://github.com/squarecandy/squarecandy-plugin-starter/commit/013b0f0d67c4bb99837e7df493f45809dfc7b879))
+
+
+### Bug Fixes
+
+* add squarecandy common ([477066a](https://github.com/squarecandy/squarecandy-plugin-starter/commit/477066ab99bc13901d7f2307fe4a6e814120f153))
+* add version constant & include squarecandy-common files ([e3f03c2](https://github.com/squarecandy/squarecandy-plugin-starter/commit/e3f03c2599eb3ed9c0e2e62dfdaf002697a9423a))
+* adjust panel content margins to prevent jquery slide up/down jumpiness ([c807ada](https://github.com/squarecandy/squarecandy-plugin-starter/commit/c807adaea831f541051a682cea25fe0680305563))
+* fixes for possible PHP 8 errors ([bd51e65](https://github.com/squarecandy/squarecandy-plugin-starter/commit/bd51e65855277dc01b9bc8da02f57abecd069a1f))
+* improve keyboard accessibility ([4f5d34d](https://github.com/squarecandy/squarecandy-plugin-starter/commit/4f5d34d6ef071298bc341a88f4420ab7f3011335))
+
 ### [4.1.6](https://github.com/squarecandy/squarecandy-plugin-starter/compare/v4.1.5...v4.1.6) (2020-11-24)
 
 
